@@ -4,7 +4,7 @@ season=$2
 episode=$3
 url=$4
 
-video_dir=/Users/w477/Movies/TV/Media.localized
+video_dir=/yourvideodir
 mp4_trans_dir=~/dev/mp4-trans-for-psp
 
 echo "Title: $title"
