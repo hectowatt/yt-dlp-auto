@@ -16,7 +16,7 @@ python3 -m venv ~/.local/share/yt-dlp-venv
 ~/.local/share/yt-dlp-venv/bin/python -c 'from Cryptodome.Cipher import AES; print("pycryptodomex: OK")'
 ~/.local/share/yt-dlp-venv/bin/yt-dlp --version
 ```
-を実行し、
+を実行し、最後の２行が成功することを確認して、
 yt-dlpの呼び出しを
 ```
 ~/.local/share/yt-dlp-venv/bin/yt-dlp "$url" -o "${title}${season}-${episode}.%(ext)s"
