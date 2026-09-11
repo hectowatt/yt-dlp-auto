@@ -5,7 +5,9 @@ episode=$3
 url=$4
 
 video_dir=/yourvideodir
-mp4_trans_dir=~/dev/mp4-trans-for-psp
+
+# psp用に変換したい場合は以下と下部のsh script.sh~のコメントアウトを外す
+# mp4_trans_dir=~/dev/mp4-trans-for-psp
 
 echo "Title: $title"
 echo "Season: $season"
@@ -34,8 +36,8 @@ cd "${season}"
 yt-dlp "$url" -o "${title}${season}-${episode}.mp4"
 
 # PSP用に変換
-cd "$mp4_trans_dir"
-sh script.sh "$video_dir/${title}/${season}/${title}${season}-${episode}.mp4" "$video_dir/${title}/${season}/${title}${season}-${episode}-r.mp4"
+# cd "$mp4_trans_dir"
+# sh script.sh "$video_dir/${title}/${season}/${title}${season}-${episode}.mp4" "$video_dir/${title}/${season}/${title}${season}-${episode}-r.mp4"
 
 if [ $? -eq 0 ]; then
   echo "Conversion successful!"
