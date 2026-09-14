@@ -5,7 +5,9 @@ title=$1
 season=$2
 amount=$3
 base_url=$4
+start_seq=$5
 
+last_episode=$((start_seq + amount - 1))
 ytdlpdir=~/dev/yt-dlp-auto
 number_of_cores=$(nproc)
 
@@ -13,6 +15,7 @@ echo "Title: $title"
 echo "URL: $base_url"
 echo "Amount: $amount"
 echo "Season: $season"
+echo "Start Sequence: $start_seq"
 
 cd "$ytdlpdir"
 
@@ -48,4 +51,4 @@ dl-loop() {
 
 export -f dl-loop
 
-seq 1 "$amount" | parallel -j "$number_of_cores" dl-loop {} "$title" "$season" "$amount" "$base_url"
+seq "$start_seq" "$last_episode" | parallel -j "$number_of_cores" dl-loop {} "$title" "$season" "$amount" "$base_url"
