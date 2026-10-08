@@ -33,7 +33,7 @@ cd "${season}"
 # 下2行のコマンドを代わりに有効化して音声と動画を別でダウンロードしたあと、別でGPUエンコードしたほうがはやいが、ファイルサイズが大きくなる場合がある
 # yt-dlp -f "ba[ext=m4a]" "$url" -o "${title}${season}-${episode}_audio.%(ext)s"
 # yt-dlp -f "bv[ext=mp4]" "$url" -o "${title}${season}-${episode}_video.%(ext)s"
-yt-dlp "$url" -o "${title}${season}-${episode}.mp4"
+yt-dlp "$url" -o "${title}-${season}-${episode}.mp4"
 
 # PSP用に変換
 # cd "$mp4_trans_dir"
@@ -41,6 +41,7 @@ yt-dlp "$url" -o "${title}${season}-${episode}.mp4"
 
 if [ $? -eq 0 ]; then
   echo "Conversion successful!"
+  exit 0
 else
   echo "Conversion failed!"
   exit 1
